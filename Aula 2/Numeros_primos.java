@@ -1,4 +1,4 @@
-public class main {
+public class Numeros_primos {
     public static void main(String[] args) {
         int aux = 0, flag = 0;
         for(int i = 1; i < 1000000; i++)
