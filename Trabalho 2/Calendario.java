@@ -89,9 +89,13 @@ public class Calendario {
 
         Calendario calendario = new Calendario();
 
-        System.out.println("Qual ano voce deseja imprimir?");
+        System.out.println("Digite um mes:");
+        int mes = input.nextInt();
+
+        System.out.println("Digite um ano:");
         int ano = input.nextInt();
 
+        calendario.imprimeMes(mes, ano);
         calendario.imprimeCalendario(ano);
 
         input.close();
