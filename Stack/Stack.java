@@ -1,3 +1,5 @@
+import java.util.EmptyStackException;
+
 public class Stack {
     private Node top;
     private int n;
@@ -6,32 +8,55 @@ public class Stack {
         this.top = null;
         this.n = 0;
     }
+    public Stack(Stack outra)
+    {
+        Node topo = null;
+    }
 
     public void push(int item) {
-        Node t = new Node();
+        Node novo = new Node();
+        novo.setItem(item);
+        novo.setNext(this.top);
+        this.top = novo;
+        this.n++;
     }
 
     public int pop() {
-        return 0;
+        if (this.isEmpty()) {
+            throw new EmptyStackException();
+        }
+        int valor = this.top.getItem();
+        this.top = this.top.getNext();
+        this.n--;
+        return valor;
     }
 
-    public int size() {
-        return 0;
+    public int getTop() {
+        if (this.isEmpty()) {
+            throw new EmptyStackException();
+        }
+        return this.top.getItem();
     }
 
     public boolean isEmpty() {
-        return false;
+        return this.n == 0;
+    }
+
+    public int size() {
+        return this.n;
     }
 
     public void clear() {
-
-    }
-
-    public Node getTop() {
-        return top;
+        this.top = null;
+        this.n = 0;
     }
 
     public void show() {
-
+        Node novo = this.top;
+        while (novo != null) {
+            System.out.print(novo.getItem() + " ");
+            novo = novo.getNext();
+        }
+        System.out.println();
     }
 }
