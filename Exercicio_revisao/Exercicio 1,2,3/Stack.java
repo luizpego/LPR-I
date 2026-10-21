@@ -9,7 +9,14 @@ public class Stack {
         this.n = 0;
     }
 
-    // Construtor copia
+    // Construtor exercicio 2
+    public Stack(int n) {
+        for (int i = 1; i < n + 1; i++) {
+            this.push(i); // Empilha os valores de 1 ate n
+        }
+    }
+
+    // Construtor copia-exercicio 1
     public Stack(Stack outra, int quantidade) {
         Node nn = outra.top;
         int i = 0;
@@ -26,6 +33,32 @@ public class Stack {
         }
         for (i = quantidade; i != 0; i--) {
             this.push(valores[i - 1]);
+        }
+    }
+
+    // Exercicio 3
+    public static boolean equal(Stack a, Stack b, Stack Original_A, Stack Original_B) {
+        int aux = 0;
+        int aux2 = a.size();
+        if (a.size() != b.size()) {
+            return false;
+        } else // A duas pilhas tem o mesmo tamanho
+        {
+            for (Node t = a.top; t != null; t = t.getNext()) {
+                if (a.getTop() == b.getTop()) {
+                    aux++;
+                }
+                Original_A.push(a.getTop());
+                Original_B.push(b.getTop());
+                a.pop();
+                b.pop();
+            }
+
+            if (aux == aux2) {
+                return true;
+            }
+
+            return false;
         }
     }
 
