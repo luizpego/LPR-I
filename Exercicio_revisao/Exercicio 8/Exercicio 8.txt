@@ -1,0 +1,1 @@
+Quando usamos throw lançamos a exceção necessária nesse momento. Já quando throws é usado falamos que quem chamar esse método deve tratar a exceção.
